@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sith page</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<div class="main-wrapper">
+    <div class="sith-page-header">{{ sith.name }}</div>
+    <div id="sith-main-block" class="sith-main-block">
+        <div class="recruits-tested">
+            {% for recruit, answer in recruits_tested %}
+            <form id="shadow-hand-form" action="{% url 'shadow-hand' %}" method="POST"
+                  class="recruit-item">
+                <div class="item-header">{{ recruit.name }}</div>
+                <div class="item-answers">
+                    <div class="recruit-answer">
+                        <div class="answer-content">{{ answer.answers }}</div>
+                    </div>
+                </div>
+                {% csrf_token %}
+                <input type="hidden" name="shadow-hand-user" value="{{ sith.slug }}">
+                <input type="hidden" name="recruit-shadow-handed" value="{{ recruit.slug }}">
+                    {% if recruit.got_shadowhand == False %}
+                        {% if sith.shadowhand_used > 2 %}
+                            <div class="placeholder">Использовано максимальное количество Рук Тени</div>
+                        {% else %}
+                            <input id="execute-shadow-hand" type="submit" value="Применить Руку Тени">
+                        {% endif %}
+                    {% else %}
+                        <div class="placeholder">Рука Тени применена (ученик оповещен)</div>
+                    {% endif %}
+
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="additional-section">
+        <div class="sith-full-list">
+            <div class="full-list__header">Все Лорды Ситхов:</div>
+            {% for sith in all_siths %}
+                <div class="full-list__item">
+                    <div class="item__sith-name">{{ sith.name }}</div>
+                    <div class="item__shadowhand">Использовано Рук Тени: {{ sith.shadowhand_used }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="sith-sh-used">
+            <div class="full-list__header">Лорды Ситхов, использовавших 1 и более Рук Тени:</div>
+            {% for sith in all_siths %}
+                {% if sith.shadowhand_used > 0 %}
+                <div class="full-list__item">
+                    <div class="item__sith-name">{{ sith.name }}</div>
+                    <div class="item__shadowhand">Использовано Рук Тени: {{ sith.shadowhand_used }}</div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

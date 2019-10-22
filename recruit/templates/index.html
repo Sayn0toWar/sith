@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruiting page</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="main-menu-block">
+    <div class="main-menu__header">Кто вы?</div>
+    <div class="main-menu__choise">
+        <a href="{% url 'recruit-1' %}" id="recruit-link" class="recruit">Я ученик</a>
+        <a href="{% url 'sith-choice' %}" id="sith-link" class="sith">Я Лорд Ситхов</a>
+    </div>
+</div>
+</body>
+</html>

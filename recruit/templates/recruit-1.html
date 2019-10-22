@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruit's page</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="recruit-block">
+    <form action="{% url 'recruit-2' %}" method="POST" class="recruit__form-reg">
+        {% csrf_token %}
+        <div class="form-reg__header">Пожалуйста, заполните поля ниже</div>
+        <div class="form-reg__inputs">
+            <div class="form-reg__input-item">
+                <div class="input__header">Ваше имя:</div>
+                <div class="input__field">
+                    <input name="recruit-input-name" type="text" required>
+                </div>
+            </div>
+            <div class="form-reg__input-item">
+                <div class="input__header">Возраст:</div>
+                <div class="input__field">
+                    <input name="recruit-input-age" type="text" required>
+                </div>
+            </div>
+            <div class="form-reg__input-item">
+                <div class="input__header">Родная планета:</div>
+                <div class="input__field">
+                    <select name="recruit-input-planet" size="1" required>
+                        <option disabled>Выберите планету</option>
+                        {% for planet in planets %}
+                            <option value="{{ planet.slug }}">{{ planet.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-reg__input-item">
+                <div class="input__header">Email:</div>
+                <div class="input__field">
+                    <input name="recruit-input-email" type="text" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-reg__button">
+            <input type="submit" value="Next">
+        </div>
+    </form>
+</div>
+</body>
+</html>

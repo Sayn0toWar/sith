@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sith choice</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <div class="sith-select-block">
+        <form id="select-block-form" action="" method="POST">
+            {% csrf_token %}
+            <select name="sith-list" id="sith-list" size="1">
+                <option disabled>Выберите себя</option>
+                {% for sith in sith_list %}
+                <option value="{{ sith.slug }}">{{ sith.name }}</option>
+                {% endfor %}
+            </select>
+<!--            <input id="shadow-hand-user" name="shadow-hand-user" type="hidden">-->
+            <input type="submit" value="Показать рекрутов">
+        </form>
+    </div>
+</body>
+</html>

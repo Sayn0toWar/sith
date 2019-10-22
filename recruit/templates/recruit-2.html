@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruit's page</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="recruit__form-quest">
+        <div class="form-quest__header">
+            Пожалуйта, ответьте на вопросы анкеты
+        </div>
+        <form action="{% url 'recruit_quest' %}" method="POST" class="form-quest__main-block">
+            <input type="hidden" name="recruit-name" value="{{ name }}">
+            {% csrf_token %}
+            {% for question in available_questions %}
+            <div class="main-block__question">
+                <div class="question-header">{{ question.content }}</div>
+                <div class="question-input">
+                    <input name="question-{{ forloop.counter }}" type="checkbox">
+                </div>
+            </div>
+            {% endfor %}
+            <div class="main-block-submit">
+                <input type="submit" value="Отправить ответы">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

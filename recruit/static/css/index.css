@@ -1,0 +1,85 @@
+.hidden {
+    display: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-menu-block {
+    position: absolute;
+    top: 40%;
+    width: 50%;
+    font-size: 24px;
+}
+
+.main-menu__header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-menu__choise {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.recruit, .sith {
+    padding: 40px 50px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.recruit-block, .recruit__form-quest, .sith-select-block {
+    position: absolute;
+    top: 30%;
+    width: 50%;
+    font-size: 24px;
+    text-align: center;
+}
+
+.form-quest__header {
+    margin-bottom: 30px;
+}
+
+.sith-page-header {
+    font-size: 30px;
+    text-align: center;
+}
+
+.item-header {
+    margin: 10px 0;
+    font-size: 20px;
+    background: rgba(138, 156, 181, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.answer-content {
+    margin-bottom: 10px;
+}
+
+.sith-main-block {
+    margin-bottom: 50px;
+}
+
+.additional-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sith-full-list, .sith-sh-used {
+    padding: 10px;
+    background: rgba(138, 156, 181, 0.2);
+    border-radius: 5px;
+}
+
+.full-list__header {
+    margin-bottom: 10px;
+}
+
+.full-list__item {
+    margin-bottom: 5px;
+}
