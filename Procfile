@@ -1,1 +1,1 @@
-web:gunicorn sithtest.wsgi --log-file -
+web: gunicorn sithtest.wsgi --log-file -
