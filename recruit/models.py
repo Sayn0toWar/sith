@@ -43,6 +43,9 @@ class Sith(models.Model):
 class Question(models.Model):
     content = models.CharField(max_length=120)
 
+    def __str__(self):
+        return self.content
+
 
 class ShadowHand(models.Model):
     order_key = models.CharField(max_length=120)

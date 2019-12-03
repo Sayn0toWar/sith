@@ -33,6 +33,7 @@ admin.site.register(Question, QuestionAdmin)
 
 
 class RecruitAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'slug', 'age', 'planet', 'email', 'got_shadowhand', )
 
 
