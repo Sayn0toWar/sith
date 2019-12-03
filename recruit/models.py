@@ -16,7 +16,7 @@ class Recruit(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, max_length=100)
     age = models.PositiveSmallIntegerField(default=0)
-    planet = models.ForeignKey(Planet, to_field='name', on_delete=models.DO_NOTHING)
+    planet = models.ForeignKey(Planet, to_field='name', on_delete=models.CASCADE)
     email = models.EmailField(max_length=100)
     got_shadowhand = models.BooleanField(default=False)
 
@@ -30,7 +30,7 @@ class Recruit(models.Model):
 class Sith(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, max_length=100)
-    planet = models.ForeignKey(Planet, to_field='name', on_delete=models.DO_NOTHING)
+    planet = models.ForeignKey(Planet, to_field='name', on_delete=models.CASCADE)
     shadowhand_used = models.PositiveSmallIntegerField(default=0)
 
     def __str__(self):
