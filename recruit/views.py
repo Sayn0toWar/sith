@@ -31,7 +31,7 @@ def recruit_2(request):
             pass
         else:
             name = request.POST.get('recruit-input-name')
-            slug = slugify(name, allow_unicode=False)
+            slug = slugify(name, allow_unicode=True)
             age = request.POST.get('recruit-input-age')
             planet = Planet.objects.get(slug=request.POST.get('recruit-input-planet'))
             email = request.POST.get('recruit-input-email')
