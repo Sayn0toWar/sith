@@ -50,7 +50,7 @@ def recruit_quest(request):
         recruit_name = request.POST.get('recruit-name')
         recruit_answers = ''
         for i, question in enumerate(available_questions):
-            if request.POST.get('question-' + str(i)) == 'on':
+            if request.POST.get('question-' + str(i+1)) == 'on':
                 user_answer = True
             else:
                 user_answer = False
