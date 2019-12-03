@@ -49,7 +49,7 @@ def recruit_quest(request):
         available_questions = Question.objects.all()
         recruit_name = request.POST.get('recruit-name')
         recruit_answers = ''
-        for i, question in enumerate(available_questions):
+        for i, question in enumerate(available_questions, 1):
             if request.POST.get('question-' + str(i)) == 'on':
                 user_answer = True
             else:
