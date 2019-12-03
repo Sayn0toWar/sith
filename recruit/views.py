@@ -72,7 +72,7 @@ def sith_choice(request):
 def sith_page(request, slug):
     sith = Sith.objects.get(slug=slug)
     all_siths = Sith.objects.all()
-    recruits_tested = Answer.objects.all()
+    recruits_tested = zip(Recruit.objects.all(), Answer.objects.all())
 
     return render(request, 'sith-page.html', context={
         'sith': sith,

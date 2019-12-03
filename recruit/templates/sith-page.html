@@ -12,10 +12,10 @@
     <div class="sith-page-header">{{ sith.name }}</div>
     <div id="sith-main-block" class="sith-main-block">
         <div class="recruits-tested">
-            {% for answer in recruits_tested %}
+            {% for recruit, answer in recruits_tested %}
             <form id="shadow-hand-form" action="{% url 'shadow-hand' %}" method="POST"
                   class="recruit-item">
-                <div class="item-header">{{ answer.recruit_name }}</div>
+                <div class="item-header">{{ recruit.name }}</div>
                 <div class="item-answers">
                     <div class="recruit-answer">
                         <div class="answer-content">{{ answer.answers }}</div>

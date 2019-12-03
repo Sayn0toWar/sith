@@ -26,6 +26,9 @@ class Recruit(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        ordering = ["name"]
+
 
 class Sith(models.Model):
     name = models.CharField(max_length=100)
@@ -62,4 +65,7 @@ class Answer(models.Model):
 
     def get_recruit_answers(self):
         return self.answers
+
+    class Meta:
+        ordering = ["recruit_name"]
 
